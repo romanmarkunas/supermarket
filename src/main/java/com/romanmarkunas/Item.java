@@ -5,13 +5,15 @@ class Item {
     private final int barCode;
     private String description;
     private double price;
+    private boolean isCountable;
 
 
-    Item(int barCode, String description, double price) {
+    Item(int barCode, String description, double price, boolean isCountable) {
 
         this.barCode = barCode;
         this.description = description;
         this.price = price;
+        this.isCountable = isCountable;
     }
 
 
@@ -20,4 +22,6 @@ class Item {
     double getPrice() { return this.price; }
 
     String getDescription() { return this.description; }
+
+    boolean isCountable() { return this.isCountable; }
 }
