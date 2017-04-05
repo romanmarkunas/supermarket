@@ -26,16 +26,4 @@ class Basket {
     }
 
     Map<Item, Integer> getItems() { return new HashMap<>(items); }
-
-    double getTotal() {
-
-        double total = 0.0;
-
-        for (Item item : items.keySet()) {
-
-            total += item.getPrice() * items.get(item);
-        }
-
-        return total;
-    }
 }

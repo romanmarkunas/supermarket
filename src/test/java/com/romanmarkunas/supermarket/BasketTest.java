@@ -37,24 +37,16 @@ public class BasketTest {
         testBasket.add(testItem1);
         testBasket.add(testItem2);
         testBasket.add(testItem2);
+        testBasket.add(testItem3);
         Item mustBeSeparateKey = new WeightableItem(11, "Oranges", 1.99, 0.200);
         testBasket.add(mustBeSeparateKey);
 
         Map<Item, Integer> expectedContent = new HashMap<>();
         expectedContent.put(testItem1, 2);
         expectedContent.put(testItem2, 2);
+        expectedContent.put(testItem3, 1);
         expectedContent.put(mustBeSeparateKey, 1);
 
         assertEquals(expectedContent, testBasket.getItems());
-    }
-
-    @Test
-    public void total() {
-
-        testBasket.add(testItem1);
-        testBasket.add(testItem1);
-        testBasket.add(testItem2);
-        testBasket.add(testItem3);
-        assertEquals(2 * 0.50 + 1.99 * 0.300 + 0.70, testBasket.getTotal(), 0.001);
     }
 }
