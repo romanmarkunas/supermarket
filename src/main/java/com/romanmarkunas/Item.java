@@ -1,27 +1,58 @@
 package com.romanmarkunas;
 
-class Item {
+import java.util.Objects;
+
+abstract class Item {
 
     private final int barCode;
     private String description;
-    private double price;
-    private boolean isCountable;
+    private double unitPrice;
 
 
-    Item(int barCode, String description, double price, boolean isCountable) {
+    Item(int barCode, String description, double price) {
 
         this.barCode = barCode;
         this.description = description;
-        this.price = price;
-        this.isCountable = isCountable;
+        this.unitPrice = price;
     }
+
+
+    abstract double getPrice();
 
 
     int getBarCode() { return this.barCode; }
 
-    double getPrice() { return this.price; }
-
     String getDescription() { return this.description; }
 
-    boolean isCountable() { return this.isCountable; }
+    double getUnitPrice() { return this.unitPrice; };
+
+
+    @Override
+    public boolean equals(Object obj) {
+
+        if (this == obj) {
+
+            return true;
+        }
+
+        if (null == obj) {
+
+            return false;
+        }
+
+        if (obj.getClass() != getClass()) {
+
+            return false;
+        }
+
+        Item item = (Item) obj;
+
+        return (item.getBarCode() == this.getBarCode());
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(this.getBarCode());
+    }
 }
