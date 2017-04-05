@@ -1,4 +1,4 @@
-package com.romanmarkunas;
+package com.romanmarkunas.supermarket;
 
 import java.util.HashMap;
 import java.util.Map;

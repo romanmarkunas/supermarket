@@ -1,5 +1,7 @@
-package com.romanmarkunas;
+package com.romanmarkunas.supermarket;
 
+import com.romanmarkunas.supermarket.CountableItem;
+import com.romanmarkunas.supermarket.Item;
 import org.junit.Test;
 import static org.junit.Assert.*;
 

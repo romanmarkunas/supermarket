@@ -1,6 +1,4 @@
-package com.romanmarkunas;
-
-import java.util.Objects;
+package com.romanmarkunas.supermarket;
 
 abstract class Item {
 

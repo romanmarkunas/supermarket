@@ -1,17 +1,26 @@
-package com.romanmarkunas;
+package com.romanmarkunas.supermarket;
 
 import java.util.Objects;
 
-class CountableItem extends Item {
+public class WeightableItem extends Item {
 
-    CountableItem(int barCode, String description, double price) {
+    private double weight;
+
+
+    WeightableItem(int barCode, String description, double price, double weight) {
 
         super(barCode, description, price);
+        this.weight = weight;
     }
 
 
+    double getWeight() { return this.weight; }
+
     @Override
-    double getPrice() { return getUnitPrice(); }
+    double getPrice() {
+
+        return (this.weight * getUnitPrice());
+    }
 
     @Override
     public boolean equals(Object obj) {
@@ -31,9 +40,9 @@ class CountableItem extends Item {
             return false;
         }
 
-        CountableItem item = (CountableItem) obj;
+        WeightableItem item = (WeightableItem) obj;
 
-        return (item.getBarCode() == this.getBarCode());
+        return (item.getBarCode() == this.getBarCode() && item.weight == this.weight);
     }
 
     @Override
