@@ -1,5 +1,7 @@
 package com.romanmarkunas;
 
+import java.util.Objects;
+
 public class WeightableItem extends Item {
 
     private double weight;
@@ -18,5 +20,34 @@ public class WeightableItem extends Item {
     double getPrice() {
 
         return (this.weight * getUnitPrice());
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+
+        if (this == obj) {
+
+            return true;
+        }
+
+        if (null == obj) {
+
+            return false;
+        }
+
+        if (obj.getClass() != getClass()) {
+
+            return false;
+        }
+
+        WeightableItem item = (WeightableItem) obj;
+
+        return (item.getBarCode() == this.getBarCode() && item.weight == this.weight);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(this.getBarCode());
     }
 }

@@ -1,5 +1,7 @@
 package com.romanmarkunas;
 
+import java.util.Objects;
+
 class CountableItem extends Item {
 
     CountableItem(int barCode, String description, double price) {
@@ -10,4 +12,33 @@ class CountableItem extends Item {
 
     @Override
     double getPrice() { return getUnitPrice(); }
+
+    @Override
+    public boolean equals(Object obj) {
+
+        if (this == obj) {
+
+            return true;
+        }
+
+        if (null == obj) {
+
+            return false;
+        }
+
+        if (obj.getClass() != getClass()) {
+
+            return false;
+        }
+
+        CountableItem item = (CountableItem) obj;
+
+        return (item.getBarCode() == this.getBarCode());
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(this.getBarCode());
+    }
 }

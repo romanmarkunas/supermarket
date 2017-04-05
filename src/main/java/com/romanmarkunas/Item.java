@@ -27,32 +27,5 @@ abstract class Item {
     double getUnitPrice() { return this.unitPrice; };
 
 
-    @Override
-    public boolean equals(Object obj) {
 
-        if (this == obj) {
-
-            return true;
-        }
-
-        if (null == obj) {
-
-            return false;
-        }
-
-        if (obj.getClass() != getClass()) {
-
-            return false;
-        }
-
-        Item item = (Item) obj;
-
-        return (item.getBarCode() == this.getBarCode());
-    }
-
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(this.getBarCode());
-    }
 }
