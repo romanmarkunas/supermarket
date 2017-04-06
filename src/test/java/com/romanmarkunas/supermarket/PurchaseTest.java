@@ -13,6 +13,7 @@ public class PurchaseTest {
     private Purchase testPurchase;
 
     private Basket basketMock;
+    private PromotionStrategy promotion1;
 
     Map<Item, Integer> items;
     private Item testItem1;
@@ -33,6 +34,9 @@ public class PurchaseTest {
         basketMock = mock(Basket.class);
         when(basketMock.getItems()).thenReturn(items);
 
+        promotion1 = mock(XForYPricePromotionStrategy.class);
+        when(promotion1.getName()).thenReturn("Super promo");
+
         testPurchase = new Purchase();
     }
 
@@ -48,5 +52,29 @@ public class PurchaseTest {
         verify(basketMock).getItems();
 
         assertEquals(3 * 0.50 + 1.99 * (0.300 * 2 + 0.200), testPurchase.getSubtotal(), 0.001);
+        assertEquals(testPurchase.getTotal(), testPurchase.getSubtotal(), 0.001);
+    }
+
+    @Test
+    public void promotion() {
+
+        HashMap<String, Double> expectedPromotionList = new HashMap<>();
+
+        testPurchase.addPromotion(promotion1);
+        items.put(testItem1, 1);
+
+        when(promotion1.calculateDisoount(any())).thenReturn(0.0);
+
+        testPurchase.evaluate(basketMock);
+        assertEquals(testPurchase.getSubtotal(), testPurchase.getTotal() , 0.001);
+        assertEquals(0.0, testPurchase.getDiscount() , 0.001);
+
+        expectedPromotionList.put("Super promo", 0.40);
+        when(promotion1.calculateDisoount(any())).thenReturn(0.40);
+
+        testPurchase.evaluate(basketMock);
+        assertEquals(testPurchase.getSubtotal() - 0.40, testPurchase.getTotal() , 0.001);
+        assertEquals(0.40, testPurchase.getDiscount() , 0.001);
+        assertEquals(expectedPromotionList, testPurchase.getDiscountList());
     }
 }

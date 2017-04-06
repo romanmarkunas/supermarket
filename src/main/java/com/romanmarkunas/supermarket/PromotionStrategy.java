@@ -2,12 +2,12 @@ package com.romanmarkunas.supermarket;
 
 import java.util.Map;
 
-abstract class PromotionStrategy {
+public abstract class PromotionStrategy {
 
     private String name;
 
 
-    PromotionStrategy(String name) {
+    public PromotionStrategy(String name) {
 
         this.name = name;
     }
