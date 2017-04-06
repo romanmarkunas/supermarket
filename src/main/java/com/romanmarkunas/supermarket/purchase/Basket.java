@@ -1,20 +1,22 @@
-package com.romanmarkunas.supermarket;
+package com.romanmarkunas.supermarket.purchase;
+
+import com.romanmarkunas.supermarket.items.Item;
 
 import java.util.HashMap;
 import java.util.Map;
 
-class Basket {
+public class Basket {
 
     private Map<Item, Integer> items;
 
 
-    Basket() {
+    public Basket() {
 
         this.items = new HashMap<>();
     }
 
 
-    void add(Item item) {
+    public void add(Item item) {
 
         if (!items.containsKey(item)) {
 
@@ -25,5 +27,5 @@ class Basket {
         }
     }
 
-    Map<Item, Integer> getItems() { return new HashMap<>(items); }
+    public Map<Item, Integer> getItems() { return new HashMap<>(items); }
 }

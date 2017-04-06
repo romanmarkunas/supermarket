@@ -1,5 +1,12 @@
-package com.romanmarkunas.supermarket;
+package com.romanmarkunas.supermarket.purchase;
 
+import com.romanmarkunas.supermarket.items.CountableItem;
+import com.romanmarkunas.supermarket.items.Item;
+import com.romanmarkunas.supermarket.items.WeightableItem;
+import com.romanmarkunas.supermarket.promotions.PromotionStrategy;
+import com.romanmarkunas.supermarket.promotions.XForYPricePromotionStrategy;
+import com.romanmarkunas.supermarket.purchase.Basket;
+import com.romanmarkunas.supermarket.purchase.Purchase;
 import org.junit.*;
 
 import java.util.HashMap;

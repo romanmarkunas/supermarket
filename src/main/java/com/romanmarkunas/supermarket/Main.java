@@ -1,5 +1,13 @@
 package com.romanmarkunas.supermarket;
 
+import com.romanmarkunas.supermarket.items.CountableItem;
+import com.romanmarkunas.supermarket.items.Item;
+import com.romanmarkunas.supermarket.items.WeightableItem;
+import com.romanmarkunas.supermarket.promotions.BuyXGetYFreePromotionStrategy;
+import com.romanmarkunas.supermarket.promotions.XForYPricePromotionStrategy;
+import com.romanmarkunas.supermarket.purchase.Basket;
+import com.romanmarkunas.supermarket.purchase.Purchase;
+
 public class Main {
 
     public static void main(String[] args) {

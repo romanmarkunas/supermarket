@@ -1,4 +1,4 @@
-package com.romanmarkunas.supermarket;
+package com.romanmarkunas.supermarket.items;
 
 import java.util.Objects;
 
@@ -7,17 +7,17 @@ public class WeightableItem extends Item {
     private double weight;
 
 
-    WeightableItem(int barCode, String description, double price, double weight) {
+    public WeightableItem(int barCode, String description, double price, double weight) {
 
         super(barCode, description, price);
         this.weight = weight;
     }
 
 
-    double getWeight() { return this.weight; }
+    public double getWeight() { return this.weight; }
 
     @Override
-    double getPrice() {
+    public double getPrice() {
 
         return (this.weight * getUnitPrice());
     }

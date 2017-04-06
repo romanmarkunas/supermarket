@@ -1,17 +1,17 @@
-package com.romanmarkunas.supermarket;
+package com.romanmarkunas.supermarket.items;
 
 import java.util.Objects;
 
-class CountableItem extends Item {
+public class CountableItem extends Item {
 
-    CountableItem(int barCode, String description, double price) {
+    public CountableItem(int barCode, String description, double price) {
 
         super(barCode, description, price);
     }
 
 
     @Override
-    double getPrice() { return getUnitPrice(); }
+    public double getPrice() { return getUnitPrice(); }
 
     @Override
     public boolean equals(Object obj) {

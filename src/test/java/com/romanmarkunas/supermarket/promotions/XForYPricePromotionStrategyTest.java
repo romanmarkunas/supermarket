@@ -1,5 +1,9 @@
-package com.romanmarkunas.supermarket;
+package com.romanmarkunas.supermarket.promotions;
 
+import com.romanmarkunas.supermarket.items.CountableItem;
+import com.romanmarkunas.supermarket.items.Item;
+import com.romanmarkunas.supermarket.items.WeightableItem;
+import com.romanmarkunas.supermarket.promotions.XForYPricePromotionStrategy;
 import org.junit.Before;
 import org.junit.Test;
 

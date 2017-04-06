@@ -1,9 +1,9 @@
-package com.romanmarkunas.supermarket;
+package com.romanmarkunas.supermarket.purchase;
 
-import com.romanmarkunas.supermarket.Basket;
-import com.romanmarkunas.supermarket.CountableItem;
-import com.romanmarkunas.supermarket.Item;
-import com.romanmarkunas.supermarket.WeightableItem;
+import com.romanmarkunas.supermarket.items.CountableItem;
+import com.romanmarkunas.supermarket.items.Item;
+import com.romanmarkunas.supermarket.items.WeightableItem;
+import com.romanmarkunas.supermarket.purchase.Basket;
 import org.junit.Before;
 import org.junit.Test;
 

@@ -1,27 +1,29 @@
-package com.romanmarkunas.supermarket;
+package com.romanmarkunas.supermarket.promotions;
+
+import com.romanmarkunas.supermarket.items.CountableItem;
+import com.romanmarkunas.supermarket.items.Item;
 
 import java.util.Map;
 
-public class BuyXGetYFreePromotionStrategy extends PromotionStrategy {
+public class XForYPricePromotionStrategy extends PromotionStrategy {
 
     private final int applicableBarcode;
     private final int xItems;
-    private final double yFreeItems;
+    private final double yPrice;
 
 
-    public BuyXGetYFreePromotionStrategy(String name, int applicableBarcode, int xItems, double yFreeItems) {
+    public XForYPricePromotionStrategy(String name, int applicableBarcode, int xItems, double yPrice) {
 
         super(name);
         this.applicableBarcode = applicableBarcode;
         this.xItems = xItems;
-        this.yFreeItems = yFreeItems;
+        this.yPrice = yPrice;
     }
 
 
     @Override
-    double calculateDiscount(Map<Item, Integer> sameBarcodeItems) {
+    public double calculateDiscount(Map<Item, Integer> sameBarcodeItems) {
 
-        // TODO - this duplicate code must be refactored, probably into protected method in parent class
         if (sameBarcodeItems == null || sameBarcodeItems.isEmpty()) {
 
             return 0.0;
@@ -63,7 +65,7 @@ public class BuyXGetYFreePromotionStrategy extends PromotionStrategy {
         }
 
         double fullPrice = totalItems * itemUnitPrice;
-        double discountedPrice = (totalItems - (totalItems / xItems) * yFreeItems) * itemUnitPrice;
+        double discountedPrice = (totalItems / xItems) * yPrice + (totalItems % xItems) * itemUnitPrice;
 
         return fullPrice - discountedPrice;
     }

@@ -1,11 +1,14 @@
-package com.romanmarkunas.supermarket;
+package com.romanmarkunas.supermarket.purchase;
+
+import com.romanmarkunas.supermarket.items.Item;
+import com.romanmarkunas.supermarket.promotions.PromotionStrategy;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-class Purchase {
+public class Purchase {
 
     private Double subtotal = null;
     private List<PromotionStrategy> promotions;
@@ -13,13 +16,13 @@ class Purchase {
     private Map<String, Double> discountList;
 
 
-    Purchase() {
+    public Purchase() {
 
         promotions = new ArrayList<>();
     }
 
 
-    void addPromotion(PromotionStrategy promotion) {
+    public void addPromotion(PromotionStrategy promotion) {
 
         // TODO - override equals in PromotionStrategy to ensure no duplicates are inserted
         if (!promotions.contains(promotion)) {
@@ -28,7 +31,7 @@ class Purchase {
         }
     }
 
-    void evaluate(Basket basket) {
+    public void evaluate(Basket basket) {
 
         this.discountList = new HashMap<>();
 
@@ -38,13 +41,13 @@ class Purchase {
         this.totalDiscount = calculateDiscount(items);
     }
 
-    Double getSubtotal() { return this.subtotal; }
+    public Double getSubtotal() { return this.subtotal; }
 
-    Double getDiscount() { return this.totalDiscount; }
+    public Double getDiscount() { return this.totalDiscount; }
 
-    Double getTotal() { return (this.subtotal - this.totalDiscount); }
+    public Double getTotal() { return (this.subtotal - this.totalDiscount); }
 
-    Map<String, Double> getDiscountList() { return new HashMap<>(discountList); }
+    public Map<String, Double> getDiscountList() { return new HashMap<>(discountList); }
 
 
     private double calculateSubtotal(Map<Item, Integer> items) {

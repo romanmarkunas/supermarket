@@ -1,4 +1,6 @@
-package com.romanmarkunas.supermarket;
+package com.romanmarkunas.supermarket.promotions;
+
+import com.romanmarkunas.supermarket.items.Item;
 
 import java.util.Map;
 
@@ -13,7 +15,7 @@ public abstract class PromotionStrategy {
     }
 
 
-    abstract double calculateDiscount(Map<Item, Integer> sameBarcodeItems);
+    public abstract double calculateDiscount(Map<Item, Integer> sameBarcodeItems);
 
 
 

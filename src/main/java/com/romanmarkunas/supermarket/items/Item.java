@@ -1,6 +1,6 @@
-package com.romanmarkunas.supermarket;
+package com.romanmarkunas.supermarket.items;
 
-abstract class Item {
+public abstract class Item {
 
     private final int barCode;
     private String description;
@@ -15,14 +15,14 @@ abstract class Item {
     }
 
 
-    abstract double getPrice();
+    public abstract double getPrice();
 
 
-    int getBarCode() { return this.barCode; }
+    public int getBarCode() { return this.barCode; }
 
-    String getDescription() { return this.description; }
+    public String getDescription() { return this.description; }
 
-    double getUnitPrice() { return this.unitPrice; };
+    public double getUnitPrice() { return this.unitPrice; };
 
 
     @Override
