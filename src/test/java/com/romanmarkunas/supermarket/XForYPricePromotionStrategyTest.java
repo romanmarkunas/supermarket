@@ -73,7 +73,7 @@ public class XForYPricePromotionStrategyTest {
         assertEquals(0.00, testPromotion.calculateDiscount(null), 0.001);
     }
 
-    @Test(expected=IllegalArgumentException.class)
+    @Test
     public void wrongItemType() {
 
         itemsToEvaluate.put(testItem2, 1);

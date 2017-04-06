@@ -38,7 +38,7 @@ public class XForYPricePromotionStrategy extends PromotionStrategy {
 
             if (item.getClass() != CountableItem.class) {
 
-                throw new IllegalArgumentException("Promotion \"" + this.getName() + "\" applied to not Countable item");
+                return 0.0;
             }
 
             if (sameBarcodeItems.keySet().size() > 1) {
