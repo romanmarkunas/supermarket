@@ -1,25 +1,25 @@
 # Design description
-## Items:
+### Items:
 1) Basic item information is stored in abstract class Item. Having base class allows for polymorphism
-2) Item is subclass depending on the item type: weightable and not. There is possibility to easily add another item
-types without need for changing existing code
+2) Item is subclass depending on the item type: weightable and countable. There is possibility to easily add another
+item types without need for changing existing code
 3) Item object are immutable and can be stored as Collection keys and values
 4) Promotions can be applied on the basis of Item class. That means promotions can also be applied to weightable items
 or any other type of items possible in the future
-## Basket:
+### Basket:
 1) Basket is simple container, which holds items collected by customer before checking out
 2) Basket groups CountableItems. This grouping is unnecessary for correct Purchase operations, but is implemented to
-save memory consumption
+save memory
 3) WeightableItems with different weights are not grouped in Basket, since it would involve Basket distinguishing
 between items, which is not Basket responsibility
-## Purchase
+### Purchase
 1) Contains logic for price and discount calculation
 2) Before applying any of promotions via Strategy pattern, Purchase groups all similar items into Maps, which is
 then passed to any of elected promotions
 3) Grouping allows Promotion methods to calculate exact amount of items of each type (including summing the weight of
 multiple weightable items, i.e. multiple bags of oranges with different weight),
-## Promotion
-1) Promotion are Strategy object, which responsibility is to distinguish, if passed items are suitable for discaount
+### Promotion
+1) Promotion are Strategy object, which responsibility is to distinguish, if passed items are suitable for discount
 based on this promotion rules
 
 # Assumptions
