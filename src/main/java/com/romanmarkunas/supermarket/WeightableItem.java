@@ -50,4 +50,7 @@ public class WeightableItem extends Item {
 
         return Objects.hash(this.getBarCode());
     }
+
+    @Override
+    public String toString() { return (getDescription() + " " + getUnitPrice() + " " + this.weight); }
 }

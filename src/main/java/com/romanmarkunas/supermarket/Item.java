@@ -25,5 +25,6 @@ abstract class Item {
     double getUnitPrice() { return this.unitPrice; };
 
 
-
+    @Override
+    public String toString() { return (getDescription() + " " + getUnitPrice()); }
 }
