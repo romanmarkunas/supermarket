@@ -2,25 +2,26 @@ package com.romanmarkunas.supermarket;
 
 import java.util.Map;
 
-public class XForYPricePromotionStrategy extends PromotionStrategy {
+public class BuyXGetYFreePromotionStrategy extends PromotionStrategy {
 
     private final int applicableBarcode;
     private final int xItems;
-    private final double yPrice;
+    private final double yFreeItems;
 
 
-    XForYPricePromotionStrategy(String name, int applicableBarcode, int xItems, double yPrice) {
+    public BuyXGetYFreePromotionStrategy(String name, int applicableBarcode, int xItems, double yFreeItems) {
 
         super(name);
         this.applicableBarcode = applicableBarcode;
         this.xItems = xItems;
-        this.yPrice = yPrice;
+        this.yFreeItems = yFreeItems;
     }
 
 
     @Override
     double calculateDiscount(Map<Item, Integer> sameBarcodeItems) {
 
+        // TODO - this duplicate code must be refactored, probably into protected method in parent class
         if (sameBarcodeItems == null || sameBarcodeItems.isEmpty()) {
 
             return 0.0;
@@ -62,7 +63,7 @@ public class XForYPricePromotionStrategy extends PromotionStrategy {
         }
 
         double fullPrice = totalItems * itemUnitPrice;
-        double discountedPrice = (totalItems / xItems) * yPrice + (totalItems % xItems) * itemUnitPrice;
+        double discountedPrice = (totalItems - (totalItems / xItems) * yFreeItems) * itemUnitPrice;
 
         return fullPrice - discountedPrice;
     }

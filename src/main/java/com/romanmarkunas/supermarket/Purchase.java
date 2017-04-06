@@ -87,7 +87,7 @@ class Purchase {
 
             for (PromotionStrategy ps : promotions) {
 
-                double temp = ps.calculateDisoount(itemsGroupedByBarcodes.get(barcode));
+                double temp = ps.calculateDiscount(itemsGroupedByBarcodes.get(barcode));
 
                 if (temp > 0.001) {
 

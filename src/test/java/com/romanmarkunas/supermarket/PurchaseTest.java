@@ -63,14 +63,14 @@ public class PurchaseTest {
         testPurchase.addPromotion(promotion1);
         items.put(testItem1, 1);
 
-        when(promotion1.calculateDisoount(any())).thenReturn(0.0);
+        when(promotion1.calculateDiscount(any())).thenReturn(0.0);
 
         testPurchase.evaluate(basketMock);
         assertEquals(testPurchase.getSubtotal(), testPurchase.getTotal() , 0.001);
         assertEquals(0.0, testPurchase.getDiscount() , 0.001);
 
         expectedPromotionList.put("Super promo", 0.40);
-        when(promotion1.calculateDisoount(any())).thenReturn(0.40);
+        when(promotion1.calculateDiscount(any())).thenReturn(0.40);
 
         testPurchase.evaluate(basketMock);
         assertEquals(testPurchase.getSubtotal() - 0.40, testPurchase.getTotal() , 0.001);

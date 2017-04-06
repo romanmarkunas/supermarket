@@ -41,43 +41,43 @@ public class XForYPricePromotionStrategyTest {
     public void noDiscount() {
 
         itemsToEvaluate.put(testItem3, 1);
-        assertEquals(0.0, testPromotion.calculateDisoount(itemsToEvaluate), 0.001);
+        assertEquals(0.0, testPromotion.calculateDiscount(itemsToEvaluate), 0.001);
     }
 
     @Test
     public void discount() {
 
         itemsToEvaluate.put(testItem3, 2);
-        assertEquals(0.40, testPromotion.calculateDisoount(itemsToEvaluate), 0.001);
+        assertEquals(0.40, testPromotion.calculateDiscount(itemsToEvaluate), 0.001);
 
         itemsToEvaluate.put(testItem3, 3);
-        assertEquals(0.40, testPromotion.calculateDisoount(itemsToEvaluate), 0.001);
+        assertEquals(0.40, testPromotion.calculateDiscount(itemsToEvaluate), 0.001);
     }
 
     @Test
     public void nullKey() {
 
         itemsToEvaluate.put(null, 3);
-        assertEquals(0.00, testPromotion.calculateDisoount(itemsToEvaluate), 0.001);
+        assertEquals(0.00, testPromotion.calculateDiscount(itemsToEvaluate), 0.001);
     }
 
     @Test
     public void emptyMap() {
 
-        assertEquals(0.00, testPromotion.calculateDisoount(itemsToEvaluate), 0.001);
+        assertEquals(0.00, testPromotion.calculateDiscount(itemsToEvaluate), 0.001);
     }
 
     @Test
     public void nullItems() {
 
-        assertEquals(0.00, testPromotion.calculateDisoount(null), 0.001);
+        assertEquals(0.00, testPromotion.calculateDiscount(null), 0.001);
     }
 
     @Test(expected=IllegalArgumentException.class)
     public void wrongItemType() {
 
         itemsToEvaluate.put(testItem2, 1);
-        assertEquals(0.00, testPromotion.calculateDisoount(itemsToEvaluate), 0.001);
+        assertEquals(0.00, testPromotion.calculateDiscount(itemsToEvaluate), 0.001);
     }
 
     @Test(expected=IllegalArgumentException.class)
@@ -85,6 +85,6 @@ public class XForYPricePromotionStrategyTest {
 
         itemsToEvaluate.put(testItem3, 1);
         itemsToEvaluate.put(testItem1, 1);
-        assertEquals(0.00, testPromotion.calculateDisoount(itemsToEvaluate), 0.001);
+        assertEquals(0.00, testPromotion.calculateDiscount(itemsToEvaluate), 0.001);
     }
 }

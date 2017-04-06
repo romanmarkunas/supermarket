@@ -13,7 +13,7 @@ public abstract class PromotionStrategy {
     }
 
 
-    abstract double calculateDisoount(Map<Item, Integer> sameBarcodeItems);
+    abstract double calculateDiscount(Map<Item, Integer> sameBarcodeItems);
 
 
 
